@@ -1,0 +1,31 @@
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(3, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+}
+
+void loop()
+{
+  	float val;
+  	val=analogRead(A0);
+  	Serial.print("Val=  ");
+  	Serial.print(val);
+	Serial.print("		");
+	Serial.print("V=  ");
+  	Serial.print(val/1023*5);
+  	Serial.print("V");
+  	val=map(val, 0, 1023, 0, 255);
+	analogWrite(3,val);
+	analogWrite(5,val);
+	analogWrite(9,val);
+	analogWrite(10,val);
+	analogWrite(11,val);
+  	Serial.print("		");
+  	Serial.print("PWM=   ");
+  	Serial.println(val);
+  
+}
